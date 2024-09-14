@@ -1,0 +1,21 @@
+.sidebar {
+    min-width: 250px;
+    width: 250px;
+    min-height: 580px;
+    height: 580px;
+}
+
+.sidebar .menu {
+    text-decoration: none;
+    color: white;
+    text-align: center;
+    font-size: small;
+}
+
+.table thead th {
+    font-size: small;
+}
+
+.table tbody td {
+    font-size: small;
+}

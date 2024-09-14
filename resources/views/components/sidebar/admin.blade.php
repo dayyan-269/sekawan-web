@@ -1,0 +1,40 @@
+<nav class="sidebar bg-primary card d-flex flex-column me-3 shadow-lg">
+    <div class="card-body">
+        <a href="#" class="h5 text-bold text-white text-center">Admin Dashboard</a>
+        <hr class="bg-white">
+        <div class="d-flex flex-column">
+            <div class="d-flex flex-row align-items-center text-white">
+                <i class="fas fa-home me-4"></i>
+                <a href="{{ route('admin.home') }}" class="mb-0 menu">Home</a>
+            </div>
+            <div class="d-flex flex-row align-items-center text-white mt-3">
+                <i class="fas fa-home me-4"></i>
+                <a href="{{ route('admin.order.index') }}" class="mb-0 menu">Pengiriman</a>
+            </div>
+            <div class="d-flex flex-row align-items-center text-white my-3">
+                <a class="text-bold mb-0 menu">Master</a>
+            </div>
+            <div class="d-flex flex-row align-items-center text-white mt-3">
+                <i class="fas fa-home me-4"></i>
+                <a href="{{ route('admin.master.driver') }}" class="mb-0 menu">Pengemudi</a>
+            </div>
+            <div class="d-flex flex-row align-items-center text-white mt-3">
+                <i class="fas fa-home me-4"></i>
+                <a href="{{ route('admin.master.vehicles') }}" class="mb-0 menu">Kendaraan</a>
+            </div>
+            <div class="d-flex flex-row align-items-center text-white mt-3">
+                <i class="fas fa-home me-4"></i>
+                <a href="{{ route('admin.master.schedule') }}" class="mb-0 menu">Jadwal Kendaraan</a>
+            </div>
+            <div class="d-flex flex-row align-items-center text-white mt-3">
+                <i class="fas fa-home me-4"></i>
+                <a href="{{ route('admin.master.account') }}" class="mb-0 menu">Akun</a>
+            </div>
+            <hr class="bg-white">
+            <div class="d-flex flex-row align-items-center text-white mt-auto">
+                <i class="fas fa-home me-4"></i>
+                <a href="#" class="mb-0 menu">Logout</a>
+            </div>
+        </div>
+    </div>
+</nav>
