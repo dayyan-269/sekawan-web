@@ -10,7 +10,7 @@ class Supervisor extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $table = 'supervisor';
+    protected $table = 'supervisors';
     protected $fillable = [
         'name',
         'email',

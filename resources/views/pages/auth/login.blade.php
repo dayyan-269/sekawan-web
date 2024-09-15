@@ -1,4 +1,4 @@
-@extends('base')
+@extends('template')
 @section('title', 'Login Page')
 @section('content')
     <div class="bg-primary mx-auto h-100 py-5 d-flex flex-column align-items-center overflow-hidden">

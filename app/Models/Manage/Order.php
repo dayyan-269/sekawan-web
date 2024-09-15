@@ -27,17 +27,17 @@ class Order extends Model
 
     public function admin()
     {
-        return $this->hasOne(Admin::class);
+        return $this->belongsTo(Admin::class, 'admin_id', 'id');
     }
 
     public function driver()
     {
-        return $this->hasOne(Driver::class);
+        return $this->belongsTo(Driver::class);
     }
 
     public function vehicle()
     {
-        return $this->hasOne(Vehicle::class);
+        return $this->belongsTo(Vehicle::class);
     }
 
     public function approvals()

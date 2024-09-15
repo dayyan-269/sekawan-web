@@ -34,11 +34,9 @@ Route::prefix('admin')->group(function () {
 
     Route::prefix('order')->group(function () {
         Route::get('/', [OrderController::class, 'index'])->name('admin.order.index');
-        Route::get('/insert', [OrderController::class, 'index'])->name('admin.order.create');
-        Route::post('/insert', [OrderController::class, 'index'])->name('admin.order.insert');
-        Route::get('/{id}', [OrderController::class, 'index'])->name('admin.order.edit');
-        Route::put('/{id}', [OrderController::class, 'index'])->name('admin.order.update');
-        Route::delete('/{id}', [OrderController::class, 'index'])->name('admin.order.delete');
+        Route::post('/insert', [OrderController::class, 'insert'])->name('admin.order.insert');
+        Route::put('/{id}', [OrderController::class, 'update'])->name('admin.order.update');
+        Route::delete('/{id}', [OrderController::class, 'delete'])->name('admin.order.delete');
     });
 
     Route::prefix('master')->group(function () {
@@ -58,13 +56,16 @@ Route::prefix('admin')->group(function () {
 
         Route::prefix('schedule')->group(function () {
             Route::get('/', [ScheduleController::class, 'index'])->name('admin.master.schedule');
-            Route::post('/', [ScheduleController::class, 'index'])->name('admin.master.schedule.insert');
+            Route::post('/', [ScheduleController::class, 'insert'])->name('admin.master.schedule.insert');
             Route::put('/{id}', [ScheduleController::class, 'update'])->name('admin.master.schedule.update');
             Route::delete('/{id}', [ScheduleController::class, 'delete'])->name('admin.master.schedule.delete');
         });
 
         Route::prefix('account')->group(function () {
             Route::get('/', [AccountController::class, 'index'])->name('admin.master.account');
+            Route::post('/', [AccountController::class, 'insert'])->name('admin.master.account.insert');
+            Route::put('/{id}/{role}', [AccountController::class, 'update'])->name('admin.master.account.update');
+            Route::delete('/{id}/{role}', [AccountController::class, 'delete'])->name('admin.master.account.delete');
         });
     });
 });

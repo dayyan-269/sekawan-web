@@ -40,6 +40,6 @@
     <script src="{{ asset('/js/argon-dashboard.js') }}"></script>
 
     <script src="{{ asset('/js/plugins/chartjs.min.js') }}"></script>
-    @section('script')
+    @yield('script')
 </body>
 </html>

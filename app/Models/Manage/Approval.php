@@ -27,6 +27,6 @@ class Approval extends Model
 
     public function supervisor()
     {
-        return $this->hasOne(Supervisor::class);
+        return $this->belongsTo(Supervisor::class);
     }
 }

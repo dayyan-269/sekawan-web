@@ -64,11 +64,11 @@
                     @method('POST')
                     <div class="form-group">
                         <label for="no_kendaraan">No. Kendaraan</label>
-                        <input type="text" class="form-control" name="no_kendaraan" placeholder="No. Kendaraan">
+                        <input type="text" class="form-control" name="no_kendaraan" placeholder="No. Kendaraan" required>
                     </div>
                     <div class="form-group">
                         <label>Jenis Kendaraan</label>
-                        <select class="form-control" name="jenis_kendaraan">
+                        <select class="form-control" name="jenis_kendaraan" required>
                             <option>Pilih Jenis Kendaraan</option>
                             <option value="penumpang">Transport Penumpang</option>
                             <option value="tambang">Transport Tambang</option>
@@ -76,7 +76,7 @@
                     </div>
                     <div class="form-group">
                         <label>Jenis Kepemilikan</label>
-                        <select class="form-control" name="kepemilikan">
+                        <select class="form-control" name="kepemilikan" required>
                             <option>Pilih Jenis Kepemilikan</option>
                             <option value="sewa">Sewa</option>
                             <option value="dibeli">Dibeli</option>
@@ -84,7 +84,7 @@
                     </div>
                     <div class="form-group">
                         <label>Status</label>
-                        <select class="form-control" name="status">
+                        <select class="form-control" name="status" required>
                             <option>Pilih Status</option>
                             <option value="aktif">Aktif</option>
                             <option value="tidak aktif">Tidak Aktif</option>
@@ -113,11 +113,11 @@
                         @method('PUT')
                         <div class="form-group">
                             <label for="no_kendaraan">No. Kendaraan</label>
-                            <input type="text" class="form-control" name="no_kendaraan" value="{{ $item->no_kendaraan }}" placeholder="No. Kendaraan">
+                            <input type="text" class="form-control" name="no_kendaraan" value="{{ $item->no_kendaraan }}" placeholder="No. Kendaraan" required>
                         </div>
                         <div class="form-group">
                             <label>Jenis Kendaraan</label>
-                            <select class="form-control" name="jenis_kendaraan">
+                            <select class="form-control" name="jenis_kendaraan" required>
                                 <option>Pilih Jenis Kendaraan</option>
                                 <option value="penumpang" {{ $item->jenis_kendaraan === 'penumpang' ? 'selected' : ''  }}>Transport Penumpang</option>
                                 <option value="tambang" {{ $item->jenis_kendaraan === 'tambang' ? 'selected' : ''  }}>Transport Tambang</option>
@@ -125,7 +125,7 @@
                         </div>
                         <div class="form-group">
                             <label>Jenis Kepemilikan</label>
-                            <select class="form-control" name="kepemilikan">
+                            <select class="form-control" name="kepemilikan" required>
                                 <option>Pilih Jenis Kepemilikan</option>
                                 <option value="sewa" {{ $item->kepemilikan === 'sewa' ? 'selected' : '' }}>Sewa</option>
                                 <option value="dibeli" {{ $item->kepemilikan === 'dibeli' ? 'selected' : '' }}>Dibeli</option>
@@ -133,7 +133,7 @@
                         </div>
                         <div class="form-group">
                             <label>Status</label>
-                            <select class="form-control" name="status">
+                            <select class="form-control" name="status" required>
                                 <option>Pilih Status</option>
                                 <option value="aktif" {{ $item->status === 'aktif' ? 'selected' : '' }}>Aktif</option>
                                 <option value="tidak aktif" {{ $item->status === 'tidak aktif' ? 'selected' : '' }}>Tidak Aktif</option>
