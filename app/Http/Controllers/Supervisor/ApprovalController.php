@@ -36,31 +36,34 @@ class ApprovalController extends Controller
         DB::beginTransaction();
         try {
             Approval::where('order_id', $orderId)->where('supervisor_id', $request->cookie('uid'))->update($payload);
-
-            $approve = Approval::where('order_id', $orderId)->get('status');
-            $isApproved = $approve->contains('status', 'setuju');
-            $isRejected = $approve->contains('status', 'tidak setuju');
-
-            if ($isApproved) {
-                Order::where('id', $orderId)->update([
-                    'status' => 'selesai'
-                ]);
-            } else if ($isRejected) {
-                Order::where('id', $orderId)->update([
-                    'status' => 'batal'
-                ]);
-            } else {
-                Order::where('id', $orderId)->update([
-                    'status' => 'menunggu'
-                ]);
-            }
-
+            $this->getApprovalStatus($orderId);
             DB::commit();
             return redirect()->back();
         } catch (\Throwable $th) {
             dd($th->getMessage());
             DB::rollback();
             return redirect()->back()->with($th->getMessage());
+        }
+    }
+
+    private function getApprovalStatus(int $orderId)
+    {
+        $approve = Approval::where('order_id', $orderId)->get('status');
+
+        if ($approve->count() === 2) {
+            if ($approve[0]->status === 'setuju' && $approve[1]->status === 'setuju') {
+                Order::where('id', $orderId)->update([
+                    'status' => 'selesai'
+                ]);
+            } else if ($approve[0]->status === 'tidak setuju' || $approve[1]->status === 'tidak setuju') {
+                Order::where('id', $orderId)->update([
+                    'status' => 'batal'
+                ]);
+            } else if ($approve[0]->status === 'menunggu' || $approve[1]->status === 'menunggu') {
+                Order::where('id', $orderId)->update([
+                    'status' => 'menunggu'
+                ]);
+            }
         }
     }
 }

@@ -67,11 +67,34 @@ class OrderController extends Controller
                     'tanggal_selesai' => null
                 ]);
             }
+            $this->updateApproval($id, $request->status);
             DB::commit();
             return redirect()->back();
         } catch (\Throwable $th) {
             dd($th->getMessage());
             return redirect()->back()->with($th->getMessage());
+        }
+    }
+
+    private function updateApproval(int $orderId, string $status)
+    {
+        $approval = Approval::where('order_id', $orderId)->get();
+        $newStatus = function ($status) {
+            if ($status === 'selesai') {
+                return 'setuju';
+            } else if ($status === 'batal') {
+                return 'tidak setuju';
+            } else {
+                return 'menunggu';
+            }
+        };
+
+        if ($approval->count() === 2) {
+            foreach ($approval as $key => $value) {
+                Approval::where('order_id', $orderId)->update([
+                    'status' => $newStatus($status),
+                ]);
+            }
         }
     }
 
