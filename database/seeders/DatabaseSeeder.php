@@ -36,5 +36,11 @@ class DatabaseSeeder extends Seeder
             'email' => 'supervisor@email.com',
             'password' => Hash::make('password123'),
         ]);
+
+        Supervisor::factory()->create([
+            'name' => 'Supervisor 2',
+            'email' => 'supervisor2@email.com',
+            'password' => Hash::make('password123'),
+        ]);
     }
 }
