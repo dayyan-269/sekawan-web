@@ -39,11 +39,19 @@ class ApprovalController extends Controller
 
             $approve = Approval::where('order_id', $orderId)->get('status');
             $isApproved = $approve->contains('status', 'setuju');
-            //dd($isApproved, $approve);
+            $isRejected = $approve->contains('status', 'tidak setuju');
 
             if ($isApproved) {
                 Order::where('id', $orderId)->update([
-                    'status' => 'setuju'
+                    'status' => 'selesai'
+                ]);
+            } else if ($isRejected) {
+                Order::where('id', $orderId)->update([
+                    'status' => 'batal'
+                ]);
+            } else {
+                Order::where('id', $orderId)->update([
+                    'status' => 'menunggu'
                 ]);
             }
 
