@@ -2,15 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Account\Admin;
-use App\Models\Account\Supervisor;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Hash;
 
+use App\Http\Requests\LoginRequest;
+use App\Models\Account\Admin;
+use App\Models\Account\Supervisor;
+
 class AuthController extends Controller
 {
-    public function login(Request $request)
+    public function login(LoginRequest $request)
     {
         $credential = [
             'email' => $request->email,
@@ -45,7 +46,7 @@ class AuthController extends Controller
         }
     }
 
-    public function logout(Request $request)
+    public function logout()
     {
         Cookie::queue(Cookie::forget('role'));
         Cookie::queue(Cookie::forget('uid'));

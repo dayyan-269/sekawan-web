@@ -3,6 +3,7 @@ namespace App\Http\Controllers\Admin\Master;
 
 use App\Exports\OrderExport;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Manage\OrderRequest;
 use App\Models\Account\Supervisor;
 use App\Models\Manage\Approval;
 use App\Models\Manage\Order;
@@ -24,7 +25,7 @@ class OrderController extends Controller
         return view('pages.admin.order.index', compact('supervisor', 'driver', 'vehicle', 'order'));
     }
 
-    public function insert(Request $request)
+    public function insert(OrderRequest $request)
     {
         $payload = [
             'admin_id' => $request->admin_id,

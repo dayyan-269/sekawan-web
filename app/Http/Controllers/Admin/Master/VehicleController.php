@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin\Master;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Master\VehicleRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -16,7 +17,7 @@ class VehicleController extends Controller
         return view('pages.admin.master.vehicle.index', compact('vehicle'));
     }
 
-    public function insert(Request $request)
+    public function insert(VehicleRequest $request)
     {
         $payload = $request->all();
         DB::beginTransaction();

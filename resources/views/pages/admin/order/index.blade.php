@@ -74,14 +74,14 @@
                 <div class="modal-body">
                     @csrf
                     @method('POST')
-                    <div class="form-group">
+                    <div class="form-group d-none">
                         <label for="admin">Admin</label>
                         <input type="text" class="form-control" name="admin_id" id="admin" placeholder="Admin" value="2"
                             readonly>
                     </div>
                     <div class="form-group">
                         <label for="supir">Supir</label>
-                        <select class="form-control" name="driver_id" id="supir">
+                        <select class="form-control" name="driver_id" id="supir" required>
                             <option>Pilih Supir</option>
                             @foreach ($driver as $item)
                             <option value="{{ $item->id }}">{{ $item->name }}</option>
@@ -90,7 +90,7 @@
                     </div>
                     <div class="form-group">
                         <label for="kendaraan">Kendaraan</label>
-                        <select class="form-control" name="vehicle_id" id="kendaraan">
+                        <select class="form-control" name="vehicle_id" id="kendaraan" required>
                             <option>Pilih Kendaraan</option>
                             @foreach ($vehicle as $item)
                             <option value="{{ $item->id }}">
@@ -102,18 +102,18 @@
                     <div class="form-group">
                         <label for="bbm">Konsumsi BBM (KM)</label>
                         <input type="number" class="form-control" name="bbm" id="bbm" placeholder="Konsumsi BBM"
-                            min="0">
+                            min="0" required>
                         <small class="form-text text-muted text-xs">*opsional</small>
                     </div>
                     <div class="form-group">
                         <label for="tanggal_order">Tanggal</label>
                         <input type="date" class="form-control" name="tanggal_order" id="tanggal_order"
-                            placeholder="Tanggal" value="{{ date('Y-m-d') }}">
+                            placeholder="Tanggal" value="{{ date('Y-m-d') }}" required>
                     </div>
                     <hr>
                     <div class="form-group">
                         <label for="supervisor">Supervisor 1</label>
-                        <select class="form-control" name="supervisor_id[]" id="supervisor">
+                        <select class="form-control" name="supervisor_id[]" id="supervisor" required>
                             <option>Pilih Supervisor</option>
                             @foreach ($supervisor as $item)
                             <option value="{{ $item->id }}">{{ $item->name }}</option>
@@ -122,7 +122,7 @@
                     </div>
                     <div class="form-group">
                         <label for="supervisor">Supervisor 2</label>
-                        <select class="form-control" name="supervisor_id[]" id="supervisor">
+                        <select class="form-control" name="supervisor_id[]" id="supervisor" required>
                             <option>Pilih Supervisor</option>
                             @foreach ($supervisor as $item)
                             <option value="{{ $item->id }}">{{ $item->name }}</option>
@@ -152,7 +152,7 @@
                     @method('PUT')
                     <div class="form-group">
                       <label for="status">Status Pengiriman</label>
-                      <select class="form-control" name="status" id="status">
+                      <select class="form-control" name="status" id="status" required>
                         <option>Pilih Status Pengiriman</option>
                         <option value="selesai" {{ $item->status === 'selesai' ? 'selected' : '' }}>Selesai</option>
                         <option value="berlangsung" {{ $item->status === 'berlangsung' ? 'selected' : '' }}>Berlangsung</option>

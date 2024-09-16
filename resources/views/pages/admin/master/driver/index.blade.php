@@ -61,11 +61,11 @@
                     @method('POST')
                     <div class="form-group">
                         <label for="name">Nama Pengemudi</label>
-                        <input type="text" class="form-control" name="name" id="name" placeholder="Nama Pengemudi">
+                        <input type="text" class="form-control" name="name" id="name" placeholder="Nama Pengemudi" required>
                     </div>
                     <div class="form-group">
                         <label for="tipe_pegawai">Tipe Pegawai</label>
-                        <select class="form-control" name="tipe_pegawai" id="tipe_pegawai">
+                        <select class="form-control" name="tipe_pegawai" id="tipe_pegawai" required>
                             <option>Pilih Tipe Pegawal</option>
                             <option value="pusat">Pusat</option>
                             <option value="cabang">Cabang</option>
@@ -95,11 +95,11 @@
                     <div class="form-group">
                         <label for="name">Nama Pengemudi</label>
                         <input type="text" class="form-control" name="name" id="name" value="{{ $item->name }}"
-                            placeholder="Nama Pengemudi">
+                            placeholder="Nama Pengemudi" required>
                     </div>
                     <div class="form-group">
                         <label for="tipe_pegawai">Tipe Pegawai</label>
-                        <select class="form-control" name="tipe_pegawai" id="tipe_pegawai">
+                        <select class="form-control" name="tipe_pegawai" id="tipe_pegawai" required>
                             <option>Pilih Tipe Pegawal</option>
                             <option value="pusat" {{ $item->tipe_pegawai == 'pusat' ? 'selected' : '' }}>Pusat</option>
                             <option value="cabang" {{ $item->tipe_pegawai == 'cabang' ? 'selected' : '' }}>Cabang

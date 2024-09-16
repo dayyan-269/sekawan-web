@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin\Master;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Master\AccountRequest;
 use App\Models\Account\Admin;
 use App\Models\Account\Supervisor;
 use Illuminate\Http\Request;
@@ -19,7 +20,7 @@ class AccountController extends Controller
         return view('pages.admin.master.account.index', compact('admin', 'supervisor'));
     }
 
-    public function insert(Request $request)
+    public function insert(AccountRequest $request)
     {
         $payload = [
             'name' => $request->name,
