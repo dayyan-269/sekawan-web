@@ -26,18 +26,19 @@ class AuthController extends Controller
                     cookie('uid', $admin->id, 60)
                 ]);
             } else {
-                $supervisor = Supervisor::where('email', $credential['email'])->first();
-
-                if ($supervisor) {
-                    $check = Hash::check($credential['password'], $supervisor->password);
-                    if ($check) {
-                        return redirect()->route('supervisor.home')->withCookies([
-                            cookie('role', 'supervisor', 60),
-                            cookie('uid', $supervisor->id, 60)
-                        ]);
-                    } else {
-                        return redirect()->back()->withInput()->with('credential wrong, try again');
-                    }
+                return redirect()->back()->withInput()->with('credential wrong, try again');
+            }
+        } else {
+            $supervisor = Supervisor::where('email', $credential['email'])->first();
+            if ($supervisor) {
+                $check = Hash::check($credential['password'], $supervisor->password);
+                if ($check) {
+                    return redirect()->route('supervisor.home')->withCookies([
+                        cookie('role', 'supervisor', 60),
+                        cookie('uid', $supervisor->id, 60)
+                    ]);
+                } else {
+                    return redirect()->back()->withInput()->with('credential wrong, try again');
                 }
             }
         }

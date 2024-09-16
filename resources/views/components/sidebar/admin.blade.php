@@ -33,7 +33,7 @@
             <hr class="bg-white">
             <div class="d-flex flex-row align-items-center text-white mt-auto">
                 <i class="fas fa-arrow-left me-4"></i>
-                <a href="#" class="mb-0 menu">Logout</a>
+                <a href="{{ route('auth.logout') }}" class="mb-0 menu">Logout</a>
             </div>
         </div>
     </div>

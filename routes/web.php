@@ -84,6 +84,6 @@ Route::prefix('supervisor')->group(function () {
     Route::prefix('approval')->group(function () {
         Route::get('/', [ApprovalController::class, 'index'])->name('supervisor.approval.index');
         Route::get('/{id}', [ApprovalController::class, 'index'])->name('supervisor.approval.detail');
-        Route::get('/approve', [ApprovalController::class, 'index'])->name('supervisor.approval.approve');
+        Route::put('/approve/{orderId}', [ApprovalController::class, 'approve'])->name('supervisor.approval.approve');
     });
 });

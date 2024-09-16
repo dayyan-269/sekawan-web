@@ -25,7 +25,6 @@ class HomeController extends Controller
             return Carbon::create()->month($curr->month)->format('F');
         })->toArray();
         $monthlyTime = json_encode($monthlyTime);
-        //dd($monthlyTime);
         
         $order = Order::with('driver', 'admin', 'vehicle', 'approvals', 'approvals.supervisor')->get();
         
