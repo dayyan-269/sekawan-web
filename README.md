@@ -15,5 +15,6 @@
 * Kemudian buka url http://localhost:8000 atau http://127.0.0.1:8000.
 
 # Akun Pengguna
-* Admin: admin@email.com - password123
-* Supervisor: supervisor@email.com - password123
+* Admin: admin@email.com | password123
+* Supervisor: supervisor@email.com | password123
+* Supervisor 2: supervisor2@email.com | password123
