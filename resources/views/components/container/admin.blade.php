@@ -1,5 +1,5 @@
 <div class="py-3 d-flex flex-row justify-content-center">
-    @if (cookie('role') === 'admin')
+    @if (request()->cookie('role') === 'admin')
         <x-sidebar.admin />
     @else
         <x-sidebar.supervisor/>

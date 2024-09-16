@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Account\Admin;
 use App\Models\Account\Supervisor;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
@@ -44,10 +45,10 @@ class AuthController extends Controller
         }
     }
 
-    public function logout()
+    public function logout(Request $request)
     {
-        cookie()->forget('role');
-        cookie()->forget('uid');
+        Cookie::queue(Cookie::forget('role'));
+        Cookie::queue(Cookie::forget('uid'));
         return redirect()->route('auth.login_view');
     }
 }

@@ -1,6 +1,6 @@
 <nav class="sidebar bg-primary card d-flex flex-column me-3 shadow-lg">
     <div class="card-body">
-        <a href="#" class="h5 text-bold text-white text-center">Admin Dashboard</a>
+        <a href="#" class="h6 text-bold text-white text-center">Supervisor Dashboard</a>
         <hr class="bg-white">
         <div class="d-flex flex-column">
             <div class="d-flex flex-row align-items-center text-white">
