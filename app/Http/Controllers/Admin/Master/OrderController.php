@@ -1,7 +1,7 @@
 <?php
 namespace App\Http\Controllers\Admin\Master;
 
-
+use App\Exports\OrderExport;
 use App\Http\Controllers\Controller;
 use App\Models\Account\Supervisor;
 use App\Models\Manage\Approval;
@@ -10,6 +10,7 @@ use App\Models\Master\Driver;
 use App\Models\Master\Vehicle;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Maatwebsite\Excel\Facades\Excel;
 
 class OrderController extends Controller
 {
@@ -84,5 +85,10 @@ class OrderController extends Controller
             DB::rollback();
             return redirect()->back()->with($th->getMessage());
         }
+    }
+
+    public function export()
+    {
+        return Excel::download(new OrderExport, 'order-export.xlsx');
     }
 }

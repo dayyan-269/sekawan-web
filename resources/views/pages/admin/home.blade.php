@@ -8,7 +8,7 @@
             <div class="card-body">
                 <div class="d-flex flex-row justify-content-between">
                     <h5 class="card-title">Pemesanan Kendaraan</h5>
-                    <button type="button" class="btn btn-info btn-sm">Export</button>
+                    <a href="{{ route('admin.order.export') }}" target="__blank" class="btn btn-info btn-sm">Export</a>
                 </div>
                 <hr>
                 <div class="chart">

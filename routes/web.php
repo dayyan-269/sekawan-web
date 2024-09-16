@@ -37,6 +37,10 @@ Route::prefix('admin')->group(function () {
         Route::post('/insert', [OrderController::class, 'insert'])->name('admin.order.insert');
         Route::put('/{id}', [OrderController::class, 'update'])->name('admin.order.update');
         Route::delete('/{id}', [OrderController::class, 'delete'])->name('admin.order.delete');
+        Route::get('/export', [OrderController::class, 'export'])->name('admin.order.export');
+        Route::get('/test', function () {
+            return view('exports.order-export');
+        });
     });
 
     Route::prefix('master')->group(function () {
