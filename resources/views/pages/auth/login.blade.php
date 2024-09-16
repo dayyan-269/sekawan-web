@@ -7,15 +7,16 @@
                 <h4 class="card-title">Login</h4>
                 <p class="card-text">Please insert your credential</p>
                 <hr>
-                @method('POST')
-                <form action="/insert" method="post">
+                <form action="{{ route('auth.login') }}" method="post">
+                    @csrf
+                    @method('POST')
                     <div class="form-group">
                         <label for="email">Email</label>
-                        <input type="text" class="form-control" name="email" id="email" placeholder="Email">
+                        <input type="text" class="form-control" name="email" id="email" placeholder="Email" required>
                     </div>
                     <div class="form-group">
                         <label for="password">Password</label>
-                        <input type="password" class="form-control" name="password" id="password" placeholder="Password">
+                        <input type="password" class="form-control" name="password" id="password" placeholder="Password" required>
                     </div>
                     <button type="submit" class="btn btn-success w-100 mt-2">Submit</button>
                 </form>

@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\Master\DriverController;
 use App\Http\Controllers\Admin\Master\OrderController;
 use App\Http\Controllers\Admin\Master\ScheduleController;
 use App\Http\Controllers\Admin\Master\VehicleController;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Supervisor\ApprovalController;
 
 //SUPERVISOR
@@ -27,7 +28,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('pages.auth.login');
-});
+})->name('auth.login_view');
+
+Route::post('/auth/login', [AuthController::class, 'login'])->name('auth.login');
+Route::get('/auth/logout', [AuthController::class, 'logout'])->name('auth.logout');
 
 Route::prefix('admin')->group(function () {
     Route::get('home', [AdminHome::class, 'index'])->name('admin.home');
