@@ -8,7 +8,6 @@
     left: 30px;
 }
 
-
 .sidebar .menu {
     text-decoration: none;
     color: white;
@@ -16,9 +15,11 @@
     font-size: small;
 }
 
-.container {
-    position: absolute;
-    left: 315px;
+@media (width >= 992px) {
+    .container {
+        position: absolute;
+        left: 315px;
+    }
 }
 
 .table thead th {
@@ -27,4 +28,9 @@
 
 .table tbody td {
     font-size: small;
+}
+
+.background {
+    width: 100vw;
+    height: 100vh;
 }

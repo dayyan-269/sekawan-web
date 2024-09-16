@@ -1,8 +1,8 @@
 @extends('template')
 @section('title', 'Login Page')
 @section('content')
-    <div class="bg-primary mx-auto h-100 py-5 d-flex flex-column align-items-center overflow-hidden">
-        <div class="card w-25 my-4">
+    <div class="bg-primary mx-auto background py-5 d-flex flex-column align-items-center justify-content-center overflow-hidden">
+        <div class="card w-50 w-lg-25 my-4">
             <div class="card-body">
                 <h4 class="card-title">Login</h4>
                 <p class="card-text">Please insert your credential</p>
